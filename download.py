@@ -12,7 +12,8 @@ def download_model():
             if os.path.isdir(child_path):
                 print(child_path)
 
-    if not os.path.exists(CheckpointsDir):
+    #if not os.path.exists(CheckpointsDir):
+    if True:
         os.makedirs(CheckpointsDir)
         print("Checkpoint Not Downloaded, start downloading...")
         tic = time.time()
