@@ -283,26 +283,6 @@ def check_video(video):
 css = """#input_img {max-width: 1024px !important} #output_vid {max-width: 1024px; max-height: 576px}"""
 
 with gr.Blocks(css=css) as demo:
-    gr.Markdown(
-        "<div align='center'> <h1>MuseTalk: Real-Time High Quality Lip Synchronization with Latent Space Inpainting </span> </h1> \
-                    <h2 style='font-weight: 450; font-size: 1rem; margin: 0rem'>\
-                    </br>\
-                    Yue Zhang <sup>\*</sup>,\
-                    Minhao Liu<sup>\*</sup>,\
-                    Zhaokang Chen,\
-                    Bin Wu<sup>†</sup>,\
-                    Yingjie He,\
-                    Chao Zhan,\
-                    Wenjiang Zhou\
-                    (<sup>*</sup>Equal Contribution, <sup>†</sup>Corresponding Author, benbinwu@tencent.com)\
-                    Lyra Lab, Tencent Music Entertainment\
-                </h2> \
-                <a style='font-size:18px;color: #000000' href='https://github.com/TMElyralab/MuseTalk'>[Github Repo]</a>\
-                <a style='font-size:18px;color: #000000' href='https://github.com/TMElyralab/MuseTalk'>[Huggingface]</a>\
-                <a style='font-size:18px;color: #000000' href=''> [Technical report(Coming Soon)] </a>\
-                <a style='font-size:18px;color: #000000' href=''> [Project Page(Coming Soon)] </a>  </div>"
-    )
-
     with gr.Row():
         with gr.Column():
             audio = gr.Audio(label="Driven Audio",type="filepath")
