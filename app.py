@@ -92,10 +92,13 @@ def inference(audio_path,video_path,bbox_shift,progress=gr.Progress(track_tqdm=T
         if bbox == coord_placeholder:
             continue
         x1, y1, x2, y2 = bbox
-        crop_frame = frame[y1:y2, x1:x2]
-        crop_frame = cv2.resize(crop_frame,(256,256),interpolation = cv2.INTER_LANCZOS4)
-        latents = vae.get_latents_for_unet(crop_frame)
-        input_latent_list.append(latents)
+        try:
+            crop_frame = frame[y1:y2, x1:x2]
+            crop_frame = cv2.resize(crop_frame,(256,256),interpolation = cv2.INTER_LANCZOS4)
+            latents = vae.get_latents_for_unet(crop_frame)
+            input_latent_list.append(latents)
+        except Exception as e:
+            print(f"## ERROR {str(e)}")
 
     # to smooth the first and the last frame
     frame_list_cycle = frame_list + frame_list[::-1]
