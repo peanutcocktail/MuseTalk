@@ -311,6 +311,7 @@ ip_address = "0.0.0.0"  # Replace with your desired IP address
 port_number = 7860  # Replace with your desired port number
 
 
-demo.queue().launch(
-    share=False , debug=True, server_name=ip_address, server_port=port_number
-)
+demo.queue().launch()
+#demo.queue().launch(
+#    share=False , debug=True, server_name=ip_address, server_port=port_number
+#)
