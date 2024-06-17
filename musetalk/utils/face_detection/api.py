@@ -53,6 +53,8 @@ class FaceAlignment:
 
         network_size = int(network_size)
 
+        print(f"FaceAlignment device = {device}")
+
         if 'cuda' in device:
             torch.backends.cudnn.benchmark = True
 #             torch.backends.cuda.matmul.allow_tf32 = False

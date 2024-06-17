@@ -11,15 +11,17 @@ from mmpose.apis import inference_topdown, init_model
 from mmpose.structures import merge_data_samples
 import torch
 from tqdm import tqdm
+import devicetorch
 
 # initialize the mmpose model
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = devicetorch.get(torch)
+#device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 config_file = './musetalk/utils/dwpose/rtmpose-l_8xb32-270e_coco-ubody-wholebody-384x288.py'
 checkpoint_file = './models/dwpose/dw-ll_ucoco_384.pth'
 model = init_model(config_file, checkpoint_file, device=device)
 
 # initialize the face detection model
-device = "cuda" if torch.cuda.is_available() else "cpu"
+#device = "cuda" if torch.cuda.is_available() else "cpu"
 fa = FaceAlignment(LandmarksType._2D, flip_input=False,device=device)
 
 # maker if the bbox is not sufficient 
