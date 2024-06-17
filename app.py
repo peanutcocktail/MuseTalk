@@ -216,7 +216,7 @@ def inference(audio_path,video_path,bbox_shift,progress=gr.Progress(track_tqdm=T
     # Write the output video
     video_clip.write_videofile(output_vid_name, codec='libx264', audio_codec='aac',fps=25)
 
-    os.remove("temp.mp4")
+#    os.remove("temp.mp4")
     #shutil.rmtree(result_img_save_path)
     print(f"result is save to {output_vid_name}")
     return output_vid_name,bbox_shift_text
