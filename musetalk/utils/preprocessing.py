@@ -105,10 +105,13 @@ def get_landmark_and_bbox(img_list,upperbondrange =0):
         
         # get bounding boxes by face detetion
         bbox = fa.get_detections_for_batch(np.asarray(fb))
+
+        print(f"get_landmark_and_bbox {bbox}")
         
         # adjust the bounding box refer to landmark
         # Add the bounding box to a tuple and append it to the coordinates list
         for j, f in enumerate(bbox):
+            print(f"j={j}, f={f}")
             if f is None: # no face in the image
                 coords_list += [coord_placeholder]
                 continue
@@ -125,6 +128,7 @@ def get_landmark_and_bbox(img_list,upperbondrange =0):
             
             f_landmark = (np.min(face_land_mark[:, 0]),int(upper_bond),np.max(face_land_mark[:, 0]),np.max(face_land_mark[:,1]))
             x1, y1, x2, y2 = f_landmark
+            print(f"f_landmark={f_landmark}")
             
             if y2-y1<=0 or x2-x1<=0 or x1<0: # if the landmark bbox is not suitable, reuse the bbox
                 coords_list += [f]
