@@ -131,6 +131,7 @@ def inference(audio_path,video_path,bbox_shift,progress=gr.Progress(track_tqdm=T
             res_frame = cv2.resize(res_frame.astype(np.uint8),(x2-x1,y2-y1))
         except Exception as e:
             print(f"## ERROR {str(e)}")
+            print(f"bbox {bbox}")
         #except:
     #                 print(bbox)
             continue
